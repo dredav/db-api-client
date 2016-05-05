@@ -7,7 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 
 $client = new DBClient([
-    'authKey' => 'DBhackFrankfurt0316',
+    'authKey' => 'PutYourAPIKeyHere',
 ]);
 
 foreach($client->request(Stations::create('Frankfurt (Main) Hbf')) as $station)

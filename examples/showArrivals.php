@@ -7,7 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 
 $client = new DBClient([
-    'authKey' => 'DBhackFrankfurt0316',
+    'authKey' => 'PutYourAPIKeyHere',
 ]);
 
 foreach($client->request(StationBoard::create('008000105', new \DateTime(), StationBoard::ARRIVAL)) as $trainBoard)

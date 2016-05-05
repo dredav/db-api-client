@@ -8,12 +8,12 @@ require __DIR__ . '/../vendor/autoload.php';
 
 
 $client = new DBClient([
-    'authKey' => 'DBhackFrankfurt0316',
+    'authKey' => 'PutYourAPIKeyHere',
 ]);
 
 foreach($client->request(StationBoard::create('008000026', new \DateTime(), StationBoard::DEPARTURE)) as $trainBoard)
 {
-    foreach($client->request(Journey::create($trainBoard->getJourneyData()['ref'])) as $stop) 
+    foreach($client->request(Journey::create($trainBoard->getJourneyData()['ref'])) as $stop)
     {
         var_dump($stop);
     }
