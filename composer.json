@@ -1,0 +1,18 @@
+{
+    "name": "ddreher/db-api-client",
+    "homepage": "https://github.com/dredav/db-api-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Dreher"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ddreher\\api\\deutschebahn\\": "src/"
+        }
+    }
+}
