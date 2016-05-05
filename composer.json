@@ -1,6 +1,9 @@
 {
     "name": "ddreher/db-api-client",
+    "type": "library",
     "homepage": "https://github.com/dredav/db-api-client",
+    "description": "A php client library for the deutsche bahn timetable API",
+    "keywords": ["deutsche bahn","api","timetable","open data","bahn","train","stations"],
     "license": "MIT",
     "authors": [
         {
