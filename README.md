@@ -69,4 +69,4 @@ The API data from deutsche bahn are published under the Creative Commons Attribu
 
 This library is published unter the MIT license.
 
-[examples]: https://github.com/dredav/db-api-client/examples
+[examples]: https://github.com/dredav/db-api-client/blob/master/examples/findStation.php
