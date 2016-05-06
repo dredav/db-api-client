@@ -9,12 +9,12 @@ use GuzzleHttp\Client;
 class DBClient
 {
     /**
-     * @var
+     * @var Client
      */
-    protected $client;
+    protected $httpClient;
 
     /**
-     * @var
+     * @var string
      */
     protected $apiUrl;
 
@@ -34,7 +34,7 @@ class DBClient
      */
     public function __construct($parameters)
     {
-        $this->client = new Client();
+        $this->httpClient = new Client();
 
         $this->apiUrl = 'https://open-api.bahn.de/bin/rest.exe/';
         $this->parameters['query'] = $this->parameters['query'] + $parameters;
@@ -59,6 +59,22 @@ class DBClient
     }
 
     /**
+     * @return Client
+     */
+    public function getHttpClient()
+    {
+        return $this->httpClient;
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiUrl()
+    {
+        return $this->apiUrl;
+    }
+
+    /**
      * @param BaseMethod $method
      * @param bool $rawResponse
      * @return string
@@ -69,19 +85,6 @@ class DBClient
         $parameters = $this->parameters;
         $parameters['query'] = $parameters['query'] + $method->getParameters();
 
-        $response = $this->client->request('GET', $this->apiUrl . $method->getName(), $parameters);
-
-        if($response->getStatusCode() == 200)
-        {
-            $content = $response->getBody()->getContents();
-            if($rawResponse)
-            {
-                return $content;
-            }
-
-            return $method->parse(json_decode($content, true));
-        }
-
-        throw new \Exception(sprintf('Invalid response code %s.', $response->getStatusCode()));
+        return $method->request($this, $parameters, $rawResponse);
     }
 }
