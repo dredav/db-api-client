@@ -53,7 +53,7 @@ foreach($client->request(StationBoard::create('008000105', new \DateTime(), Stat
 }
 ```
 
-For train station in Germany you can also use the short station id (e.g. remove the 008 and all leading 0), for Frankfurt (Main) Hauptbahnhof it will be 105. You can also determine the station id from the API, while searching train stations (see the example `examples/findStation.php`). All examples are available in the [examples folder][examples].
+For train station in Germany you can also use the short station id (e.g. remove the 008 and all leading 0), for Frankfurt (Main) Hauptbahnhof it will be 105. You can also determine the station id from the API, while searching train stations (see the example [examples/findStation.php][findStation]). All examples are available in the [examples folder][examples].
 
 ## Obtain API key
 
@@ -69,4 +69,5 @@ The API data from deutsche bahn are published under the Creative Commons Attribu
 
 This library is published unter the MIT license.
 
-[examples]: https://github.com/dredav/db-api-client/blob/master/examples/findStation.php
+[findStation]: examples/findStation.php
+[examples]: examples
