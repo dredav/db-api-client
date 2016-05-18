@@ -61,7 +61,7 @@ class StationBoard extends BaseMethod
     }
 
     /**
-     * @param string $response
+     * @param array $response
      * @return \Generator
      */
     public function parse($response)
@@ -75,14 +75,25 @@ class StationBoard extends BaseMethod
         }
         
         $response = $response[$board];
-        if(!array_key_exists($mode, $response)) 
+	    $this->parseErrors($response);
+
+		if(!array_key_exists($mode, $response))
+		{
+			throw new \InvalidArgumentException(sprintf('Response data %s is missing', $mode));
+		}
+
+	    if(is_int(array_keys($response[$mode])[0]))
         {
-            throw new \InvalidArgumentException(sprintf('Response data %s is missing', $mode));
+            $response = $response[$mode];
         }
-        
-        $response = $response[$mode];
+
         foreach($response as $connection)
         {
+            if(is_string($connection))
+            {
+                continue;
+            }
+
             $journeyDetail = $connection['JourneyDetailRef']['ref'];
             $date = new \Datetime($connection['date'] . ' ' . $connection['time']);
             

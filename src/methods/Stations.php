@@ -32,7 +32,7 @@ class Stations extends BaseMethod
     }
     
     /**
-     * @param string $response
+     * @param array $response
      * @return \Generator
      */
     public function parse($response)
@@ -43,6 +43,8 @@ class Stations extends BaseMethod
         }
         
         $response = $response['LocationList'];
+        $this->parseErrors($response);
+
         if(!array_key_exists('StopLocation', $response)) 
         {
             throw new \InvalidArgumentException('Response data StopLocation is missing');

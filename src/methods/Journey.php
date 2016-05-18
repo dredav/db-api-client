@@ -30,7 +30,7 @@ class Journey extends BaseMethod
     }
 
     /**
-     * @param string $response
+     * @param array $response
      * @return \Generator
      */
     public function parse($response)
@@ -41,6 +41,8 @@ class Journey extends BaseMethod
         }
         
         $journey = $response['JourneyDetail'];
+        $this->parseErrors($response);
+
         if(!array_key_exists('Stops', $journey)) 
         {
             throw new \InvalidArgumentException('Response data Stops is missing');

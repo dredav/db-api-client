@@ -39,6 +39,21 @@ abstract class BaseMethod
     }
 
     /**
+     * check if the response contains an error
+     * @param array $response
+     * @throws \Exception
+     */
+     public function parseErrors($response)
+     {
+         if(!is_array($response) || !array_key_exists('errorCode', $response))
+         {
+             return;
+         }
+
+         throw new DataException($response['errorText'], $response['errorCode']);
+     }
+
+    /**
      * @param array $response
      * @return \Generator
      */
