@@ -30,7 +30,19 @@ class StationBoard extends BaseMethod
             'date' => $dateTime->format('Y-m-d'),
             'time' => $dateTime->format('H:i'),
         ]);
-        
+
+        return $board->setMode($mode);
+    }
+
+    public static function createWithDirection($fromId, $toId, \DateTime $dateTime, $mode)
+    {
+        $board = new self([
+            'id' => $fromId,
+            'direction' => $toId,
+            'date' => $dateTime->format('Y-m-d'),
+            'time' => $dateTime->format('H:i'),
+        ]);
+
         return $board->setMode($mode);
     }
 
