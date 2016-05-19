@@ -77,7 +77,7 @@ class DBClient
     /**
      * @param BaseMethod $method
      * @param bool $rawResponse
-     * @return string
+     * @return array
      * @throws \Exception
      */
     public function request(BaseMethod $method, $rawResponse = false)

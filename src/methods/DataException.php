@@ -15,4 +15,12 @@ class DataException extends \Exception
         parent::__construct($message);
         $this->errorCode = $code;
     }
+
+    /**
+     * @return string
+     */
+    public function getErrorCode()
+    {
+        return $this->errorCode;
+    }
 }
