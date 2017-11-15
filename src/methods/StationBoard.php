@@ -144,14 +144,10 @@ class StationBoard extends BaseMethod
                 'ref' => $matches[1],
             ]);
 
-            if($this->mode == StationBoard::ARRIVAL)
-            {
+            if (isset($connection['origin']))
                 $trainBoard->setOrigin($connection['origin']);
-            }
-            else
-            {
+            if (isset($connection['direction']))
                 $trainBoard->setDirection($connection['direction']);
-            }
             
             yield $trainBoard;
         }
