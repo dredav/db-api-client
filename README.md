@@ -47,7 +47,7 @@ $client = new DBClient([
     'authKey' => 'PutYourAPIKeyHere',
 ]);
 
-foreach($client->request(StationBoard::create('008000105', new \DateTime(), StationBoard::DEPARTURE)) as $trainBoard)
+foreach($client->request(StationBoard::create('8000105', new \DateTime(), StationBoard::DEPARTURE)) as $trainBoard)
 {
     var_dump($trainBoard);
 }
