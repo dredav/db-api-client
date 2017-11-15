@@ -127,7 +127,9 @@ class StationBoard extends BaseMethod
                 $type = $connection['type'];
             }
             
-            $trainBoard = new TrainBoard($connection['stopid'], $connection['stop'], $connection['name'], $type, $date);
+            $stop = isset($connection['stop']) ? $connection['stop'] : (isset($connection['stopiop']) ? $connection['stopiop'] : NULL);
+
+            $trainBoard = new TrainBoard(isset($connection['stopid']) ? $connection['stopid'] : 0, $stop, $connection['name'], $type, $date);
             if(array_key_exists('track', $connection))
             {
                 $trainBoard->setTrack($connection['track']);
