@@ -115,7 +115,7 @@ class StationBoard extends BaseMethod
             {
                 if(!array_key_exists('tyte', $connection))
                 {
-                    $type = $connection['tyoe'];
+                    $type = $connection['type'];
                 }
                 else
                 {
